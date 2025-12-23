@@ -1,0 +1,820 @@
+/* ===== GLOBAL RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Playfair Display", serif;
+  background: linear-gradient(135deg, #8b1538 0%, #6b1028 100%);
+  color: #fff8dc;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== CONTAINER & LAYOUT ===== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SCREEN NAVIGATION ===== */
+.screen {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* ===== SNOWFLAKES ANIMATION ===== */
+.snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.snowflake:nth-child(1) {
+  left: 5%;
+  animation-duration: 10s;
+  animation-delay: 0s;
+}
+.snowflake:nth-child(2) {
+  left: 10%;
+  animation-duration: 12s;
+  animation-delay: 1s;
+}
+.snowflake:nth-child(3) {
+  left: 15%;
+  animation-duration: 9s;
+  animation-delay: 2s;
+}
+.snowflake:nth-child(4) {
+  left: 20%;
+  animation-duration: 11s;
+  animation-delay: 0.5s;
+}
+.snowflake:nth-child(5) {
+  left: 25%;
+  animation-duration: 13s;
+  animation-delay: 1.5s;
+}
+.snowflake:nth-child(6) {
+  left: 30%;
+  animation-duration: 10s;
+  animation-delay: 2.5s;
+}
+.snowflake:nth-child(7) {
+  left: 35%;
+  animation-duration: 12s;
+  animation-delay: 0s;
+}
+.snowflake:nth-child(8) {
+  left: 40%;
+  animation-duration: 11s;
+  animation-delay: 1s;
+}
+.snowflake:nth-child(9) {
+  left: 45%;
+  animation-duration: 9s;
+  animation-delay: 2s;
+}
+.snowflake:nth-child(10) {
+  left: 50%;
+  animation-duration: 13s;
+  animation-delay: 0.5s;
+}
+.snowflake:nth-child(11) {
+  left: 55%;
+  animation-duration: 10s;
+  animation-delay: 1.5s;
+}
+.snowflake:nth-child(12) {
+  left: 60%;
+  animation-duration: 12s;
+  animation-delay: 2.5s;
+}
+.snowflake:nth-child(13) {
+  left: 65%;
+  animation-duration: 11s;
+  animation-delay: 0s;
+}
+.snowflake:nth-child(14) {
+  left: 70%;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+.snowflake:nth-child(15) {
+  left: 75%;
+  animation-duration: 13s;
+  animation-delay: 2s;
+}
+.snowflake:nth-child(16) {
+  left: 80%;
+  animation-duration: 10s;
+  animation-delay: 0.5s;
+}
+.snowflake:nth-child(17) {
+  left: 85%;
+  animation-duration: 12s;
+  animation-delay: 1.5s;
+}
+.snowflake:nth-child(18) {
+  left: 90%;
+  animation-duration: 11s;
+  animation-delay: 2.5s;
+}
+.snowflake:nth-child(19) {
+  left: 95%;
+  animation-duration: 9s;
+  animation-delay: 0s;
+}
+.snowflake:nth-child(20) {
+  left: 3%;
+  animation-duration: 13s;
+  animation-delay: 1s;
+}
+
+/* ===== DECORATIVE STARS ===== */
+.star {
+  position: fixed;
+  font-size: 2rem;
+  animation: twinkle 3s ease-in-out infinite;
+  z-index: 998;
+}
+
+.star-1 {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.star-2 {
+  top: 20%;
+  right: 15%;
+  animation-delay: 1s;
+}
+.star-3 {
+  bottom: 15%;
+  left: 20%;
+  animation-delay: 2s;
+}
+.star-4 {
+  bottom: 25%;
+  right: 10%;
+  animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ===== MUSIC TOGGLE BUTTON ===== */
+.music-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(255, 215, 0, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== BACK BUTTON ===== */
+.back-button {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 50;
+  background: rgba(255, 248, 220, 0.95);
+  border: 3px solid #daa520;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  color: #8b1538;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+  background: #fff8dc;
+  box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
+}
+
+.back-button:active {
+  transform: scale(0.95);
+}
+
+/* ===== HOME SCREEN (GIFT BOX) ===== */
+.card {
+  background: linear-gradient(135deg, #fff8dc 0%, #faebd7 100%);
+  padding: 3rem 2.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gift-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.sparkle-icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.title {
+  font-family: "Mountains of Christmas", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #8b1538;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #6b1028;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.open-button {
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+  color: #fff8dc;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(218, 165, 32, 0.4);
+  text-transform: uppercase;
+}
+
+.open-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(218, 165, 32, 0.6);
+}
+
+/* ===== DASHBOARD SCREEN ===== */
+.dashboard-title {
+  font-family: "Mountains of Christmas", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff8dc;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.dashboard-icon {
+  background: rgba(255, 248, 220, 0.95);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-icon:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.icon-wrapper {
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  transition: all 0.3s ease;
+}
+
+.dashboard-icon:hover .icon-wrapper {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.coming-soon-wrapper {
+  background: linear-gradient(135deg, #aaa 0%, #888 100%);
+  opacity: 0.6;
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+.icon-label {
+  font-weight: 600;
+  color: #8b1538;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* ===== LETTER SCREEN ===== */
+.heart-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.message-title {
+  font-family: "Mountains of Christmas", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #8b1538;
+  margin-bottom: 1.5rem;
+}
+
+.message-content {
+  color: #6b1028;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.message-content p {
+  margin-bottom: 1rem;
+}
+
+.signature {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #daa520;
+}
+
+.signature-title {
+  font-family: "Mountains of Christmas", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #8b1538;
+  margin-bottom: 0.5rem;
+}
+
+.signature-subtitle {
+  font-style: italic;
+  color: #6b1028;
+  font-size: 0.95rem;
+}
+
+.sparkles {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.sparkle {
+  font-size: 1.5rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.sparkle:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.sparkle:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* ===== PHOTO GALLERY SCREEN (HANGING BAUBLES STYLE) ===== */
+.gallery-container {
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  padding: 2rem 1rem;
+}
+
+/* Made title smaller and more elegant with Christmas theme */
+.gallery-main-title {
+  font-family: "Mountains of Christmas", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #daa520;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+
+/* Decorative sparkles positioned around the baubles */
+.sparkle-decoration {
+  position: absolute;
+  font-size: 1.8rem;
+  animation: twinkle 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.sparkle-top-left {
+  top: 5%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.sparkle-top-right {
+  top: 5%;
+  right: 5%;
+  animation-delay: 1s;
+}
+
+.sparkle-mid-left {
+  top: 40%;
+  left: 2%;
+  animation-delay: 0.5s;
+}
+
+.sparkle-mid-right {
+  top: 40%;
+  right: 2%;
+  animation-delay: 1.5s;
+}
+
+/* Baubles grid layout - responsive grid with hanging ornaments */
+.baubles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual bauble item with hanging animation */
+.bauble-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: swingBauble 4s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.bauble-item:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.bauble-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.bauble-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.bauble-item:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.bauble-item:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.bauble-item:nth-child(6) {
+  animation-delay: 1.5s;
+}
+
+/* Swing animation for hanging baubles */
+@keyframes swingBauble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+/* Red bow decoration on top of each bauble */
+.bow {
+  font-size: 2rem;
+  margin-bottom: -0.5rem;
+  z-index: 3;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Hanging string from bow to bauble */
+.hanging-string {
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(to bottom, #8b1538, #6b1028);
+  margin-bottom: 0.5rem;
+  border-radius: 1px;
+}
+
+/* Circular bauble frame with red border */
+.bauble-frame {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 6px solid #8b1538;
+  background: linear-gradient(135deg, #fff8dc 0%, #faebd7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(139, 21, 56, 0.3), inset 0 -5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Shine effect on bauble */
+.bauble-frame::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bauble-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(139, 21, 56, 0.4), inset 0 -5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Photo area inside bauble with gold gradient */
+.bauble-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #faebd7 0%, #daa520 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  border: 3px solid #daa520;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Small romantic caption beneath each bauble */
+.bauble-caption {
+  margin-top: 1rem;
+  font-family: "Playfair Display", serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #fff8dc;
+  text-align: center;
+  line-height: 1.4;
+  max-width: 160px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Made footer text smaller and more subtle to emphasize photos */
+.gallery-footer-text {
+  text-align: center;
+  margin-top: 3rem;
+  color: #fff8dc;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.gallery-footer-text p {
+  margin-bottom: 0.3rem;
+}
+
+/* ===== COMING SOON SCREEN ===== */
+.coming-soon-card {
+  background: linear-gradient(135deg, #fff8dc 0%, #faebd7 100%);
+}
+
+.coming-soon-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.coming-soon-title {
+  font-family: "Mountains of Christmas", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #8b1538;
+  margin-bottom: 1rem;
+}
+
+.coming-soon-text {
+  font-size: 1.1rem;
+  color: #6b1028;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  /* Adjusted baubles grid for mobile - 2 columns */
+  .baubles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+
+  /* Adjusted gallery title size for mobile */
+  .gallery-main-title {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Smaller baubles for mobile */
+  .bauble-frame {
+    width: 140px;
+    height: 140px;
+    border-width: 5px;
+  }
+
+  .bauble-photo {
+    width: 110px;
+    height: 110px;
+    font-size: 2.8rem;
+    border-width: 2px;
+  }
+
+  .bow {
+    font-size: 1.5rem;
+  }
+
+  .hanging-string {
+    height: 20px;
+  }
+
+  /* Adjusted caption and footer text sizes for mobile */
+  .bauble-caption {
+    font-size: 0.7rem;
+    max-width: 130px;
+  }
+
+  .gallery-footer-text {
+    font-size: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .sparkle-decoration {
+    font-size: 1.3rem;
+  }
+
+  .back-button {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .music-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Single column layout for very small screens */
+  .baubles-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bauble-frame {
+    width: 160px;
+    height: 160px;
+  }
+
+  .bauble-photo {
+    width: 125px;
+    height: 125px;
+    font-size: 3rem;
+  }
+
+  .bauble-caption {
+    max-width: 160px;
+  }
+}
