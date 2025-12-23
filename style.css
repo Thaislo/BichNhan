@@ -443,6 +443,7 @@ body {
   color: #6b1028;
   line-height: 1.8;
   margin-bottom: 2rem;
+  text-align: justify;
 }
 
 .message-content p {
@@ -716,6 +717,77 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.photo-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 2rem;
+max-width: 900px;
+margin: 0 auto;
+}
+
+.photo-item {
+background: rgba(255, 248, 220, 0.95);
+border-radius: 16px;
+padding: 12px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item:hover {
+transform: translateY(-6px);
+box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.photo-item img {
+width: 100%;
+height: 280px;
+object-fit: cover;
+border-radius: 12px;
+}
+
+.photo-caption {
+margin-top: 10px;
+font-size: 0.9rem;
+color: #6b1028;
+font-style: italic;
+text-align: center;
+}
+/* ===== LOCKED PHOTO STYLE ===== */
+
+.photo-item {
+position: relative;
+overflow: hidden;
+}
+
+.photo-item.locked img {
+filter: blur(6px) brightness(0.8);
+transform: scale(1.05);
+}
+
+.lock-overlay {
+position: absolute;
+inset: 0;
+background: rgba(0, 0, 0, 0.35);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: #fff8dc;
+font-size: 2rem;
+font-weight: 600;
+z-index: 2;
+}
+
+.lock-overlay span {
+margin-top: 0.5rem;
+font-size: 0.9rem;
+font-style: italic;
+opacity: 0.9;
+}
+.photo-item.locked:hover img {
+filter: blur(3px) brightness(0.9);
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .dashboard-grid {
@@ -818,3 +890,7 @@ body {
     max-width: 160px;
   }
 }
+
+/* ===== SIMPLE PHOTO GALLERY (RECTANGLE FRAME) ===== */
+
+
